@@ -4,6 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.kis.eampledager.inject.*
+import dagger.internal.DaggerGenerated
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.util.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -17,9 +22,11 @@ class MainActivity : AppCompatActivity() {
 
 
     private val component by lazy {
-        DaggerDagComponent.builder()
-            .showLolModul(ShowLolModul(this))
-            .build()
+        DaggerDagComponent
+            .factory()
+            .create(this,
+                 System.currentTimeMillis().toString()
+            )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +34,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         component.inject(this)
         computer.showWork()
+        val showTime = showLol
         Log.d("TAGActivity", showLol.contextString())
+        Log.d("TAGActivity", showLol.showStringTime())
     }
 
 }
