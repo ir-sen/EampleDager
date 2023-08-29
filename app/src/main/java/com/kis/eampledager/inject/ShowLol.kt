@@ -2,8 +2,10 @@ package com.kis.eampledager.inject
 
 import android.content.Context
 import com.kis.eampledager.R
+import com.kis.eampledager.inject.Di.CustomSingleTon
 import javax.inject.Inject
 
+@CustomSingleTon
 class ShowLol @Inject constructor(
     val context: Context,
     val time: String,
