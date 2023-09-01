@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.kis.eampledager.inject.*
-import com.kis.eampledager.inject.Di.ViewModelFactoy1
-import java.util.*
+import com.kis.eampledager.inject.Di.ViewModelFactory
+import com.kis.eampledager.inject.viewModel.ComputerViewModel
+import com.kis.eampledager.inject.viewModel.NootBookViewModel
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -15,10 +16,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var computerViewModel: ComputerViewModel
 
     @Inject
-    lateinit var viewModelFactory1: ViewModelFactoy1
+    lateinit var viewModelFactory1: ViewModelFactory
 
     private val viewModel1 by lazy {
         ViewModelProvider(this, viewModelFactory1)[ComputerViewModel::class.java]
+    }
+
+    private val nootBookViewModel by lazy {
+        ViewModelProvider(this, viewModelFactory1)[NootBookViewModel::class.java]
     }
 
     @Inject
@@ -35,6 +40,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         component.inject(this)
         viewModel1.showWork()
+
+        nootBookViewModel
         val showTime = showLol
         Log.d(TAG, showLol.contextString())
         Log.d(TAG, showLol.showStringTime())
@@ -42,6 +49,8 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "ShowLol ${showLol}")
         Log.d(TAG, "Computer ${viewModel1}")
         Log.d(TAG, "Computer ${viewModel1}")
+
+//        Log.d(TAG, "NootBookViewModel ${nootBookViewModel.showExampleViewModel()}")
     }
 
 }

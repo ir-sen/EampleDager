@@ -1,6 +1,6 @@
-package com.kis.eampledager.inject
+package com.kis.eampledager.inject.iterfaces
 
-import android.util.Log
+import com.kis.eampledager.inject.iterfaces.ComputerInterface
 import javax.inject.Inject
 
 class ComputerInterfaceImpl @Inject constructor(): ComputerInterface {

@@ -1,4 +1,4 @@
-package com.kis.eampledager.inject
+package com.kis.eampledager.inject.iterfaces
 
 
 
