@@ -7,10 +7,10 @@ import javax.inject.Provider
 
 @CustomSingleTon
 class ViewModelFactory @Inject constructor(
-    private val viewModelsProviders: @JvmSuppressWildcards Map<String, Provider<ViewModel>>
+    private val viewModelsProviders: @JvmSuppressWildcards Map<Class<out ViewModel>, Provider<ViewModel>>
 ): ViewModelProvider.Factory{
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return viewModelsProviders[modelClass.simpleName]?.get() as T
+        return viewModelsProviders[modelClass]?.get() as T
     }
 }
