@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
 
     private val component by lazy {
         (application as ApplicationApp).component
+            .activityComponentFactory()
+            .create(555L)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, showLol.showStringTime())
         Log.d(TAG, "ShowLol ${showLol}")
         Log.d(TAG, "ShowLol ${showLol}")
-        Log.d(TAG, "Computer ${viewModel1}")
+        Log.d(TAG, "Computer Work ${viewModel1.showWork()}")
         Log.d(TAG, "Computer ${viewModel1}")
 
 //        Log.d(TAG, "NootBookViewModel ${nootBookViewModel.showExampleViewModel()}")

@@ -9,7 +9,8 @@ class ApplicationApp: Application() {
         DaggerDagComponent
             .factory()
             .create(this,
-                System.currentTimeMillis().toString()
+                System.currentTimeMillis().toString(),
+                1L
             )
     }
 

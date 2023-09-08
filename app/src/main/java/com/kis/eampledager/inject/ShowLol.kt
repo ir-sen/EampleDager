@@ -4,6 +4,7 @@ import android.content.Context
 import com.kis.eampledager.R
 import com.kis.eampledager.inject.Di.CustomSingleTon
 import javax.inject.Inject
+import javax.inject.Named
 
 @CustomSingleTon
 class ShowLol @Inject constructor(
@@ -18,4 +19,5 @@ class ShowLol @Inject constructor(
     fun showStringTime(): String {
         return time
     }
+
 }
